@@ -1,0 +1,75 @@
+ <section>
+            <div id="wrapper">
+                <div id="modal">
+                    <button class="hider">X</button>
+                    <div class="main-product-content">
+                        <div class="first-div">
+                            <div id="modal-header">
+                                <img class="product-img" src="shoes.png">
+                            </div>
+                            <div id="modal-body">
+                                <p class="small-txt"> Nike </p>
+                                <h2 class="product-heading">Air Jordens</h2>
+                                <small class="product-modle">SBC-2343</small>
+                                <h4 class="product-price"> <s class="stp">$30.00</s>$25.00 </h4>
+                                <h5 class="product-varients">Varients</h5>
+                                <select name="varients" class="products-variety">
+                                    <option value="varients">Lithograph-height:9" x width 12"</option>
+                                    <option value="varients">Lithograph-height:9" x width 12"</option>
+                                    <option value="varients">Lithograph-height:9" x width 12"</option>
+                                    <option value="varients">Lithograph-height:9" x width 12"</option>
+                                </select>
+                                <h5 class="product-quantity">Quantity</h5>
+                                <span class="quantity-adder">
+                                    <input type="button" value="-" class="minus quantity"/>
+                                    <input type="number" min="1" value="1" class="st quantity">
+                                    <input type="button" value="+" class="plus quantity">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="second-div">
+                            <button class="add-cart-btn div-btn">Add To Cart</button>
+                            <button class="checkout-btn div-btn">Skip & Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(".quick-nowbtn").on("click", function () {
+            $('#modal').css({ 'transition': 'all 1s ease', 'transform': 'scale(1,1)', 'top': '0', 'position': 'absolute' });
+            $("#modal").show();
+            $('.container').css({ 'opacity': '0.5' });
+            $('.main-container').css('background','rgb(0,0,0,0.4)');
+            $('body').css('position','fixed');
+        });
+        $(".hider").on("click", function () {
+            $("#modal").hide();
+            $('.container').css({ 'opacity': '1' });
+            $('.main-container').css('background','rgb(0,0,0,0)');
+            $('body').removeAttr('style');
+        });
+        var  i;
+        $(function(){
+            $('.plus').click(function(){
+                i = parseInt ($('.st').val());
+                i = i+1;
+                $('.st').val(i);
+              
+
+            })
+            $('.minus').click(function(){
+                i = parseInt ($('.st').val());
+                i = i-1;
+                if(i==0){
+                    i=1;
+                }
+                $('.st').val(i);
+
+            })
+
+        })
+
+    </script>
+    </section>
