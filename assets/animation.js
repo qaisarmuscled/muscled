@@ -5,7 +5,7 @@ if(document.getElementsByClassName("header-animation").length){
   
 }
   gsap.registerPlugin(ScrollTrigger);
-  gsap.from('.productsec-animation',{ scrollTrigger:'.productsec-animation',duration: 1, x : '-100%'})
+  gsap.from('.productsec-animation',{ scrollTrigger:'.productsec-animation',duration: 10, x : '-100%'})
 
 var check_class=false;
 var _intv = setInterval(function(){
