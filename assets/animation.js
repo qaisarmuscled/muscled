@@ -1,7 +1,7 @@
 
 if(document.getElementsByClassName("header-animation").length){
     gsap.from( '.header-animation',{duration: 1, y: '-100%', ease:'bounce'})
-  // gsap.from( '.hero-animation',{duration: 1.5, x:'-100%', ease:'power4.out'})//
+  gsap.from( '.hero-animation',{duration: 1.5, x:'-100%', ease:'power4.out'})
   
 }
   gsap.registerPlugin(ScrollTrigger);
@@ -28,5 +28,3 @@ var _intv = setInterval(function(){
   gsap.from('.animation-blog',{ scrollTrigger:'.blog-animate',duration: 4, x : '-100%', stagger:1, repeat:-1, yoyo:true})
 
 
-gsap.registerPlugin(ScrollTrigger);
- gsap.from( '.new-animation .card',{ scrollTrigger:' duration: 1, y: '-100%', ease:'bounce''})
