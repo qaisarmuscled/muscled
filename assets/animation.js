@@ -25,8 +25,8 @@ var _intv = setInterval(function(){
 
   gsap.from('.card',{ duration: 1, x : '-100%'})
   gsap.registerPlugin(ScrollTrigger);
-  gsap.from('.animation-blog',{ scrollTrigger:'.blog-animate',duration: 4, x : '-100%', stagger:1})
+  gsap.from('.animation-blog',{ scrollTrigger:'.blog-animate',duration: 4, x : '-50%', stagger:1 ,repeate:-1, yoo:true})
 
- 
- gsap.from('.blog__button',{ scrollTrigger:'.blog__button',duration: 4, x : '-100%', stagger:1 yoyo:true})
+
+
 
