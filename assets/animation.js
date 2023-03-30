@@ -29,4 +29,4 @@ var _intv = setInterval(function(){
 
 
 gsap.registerPlugin(ScrollTrigger);
- gsap.from( '.new-animation .card',{duration: 1, y: '-100%', ease:'bounce'})
+ gsap.from( '.new-animation .card',{ scrollTrigger: duration: 1, y: '-100%', ease:'bounce'})
