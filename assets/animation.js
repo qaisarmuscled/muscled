@@ -1,3 +1,5 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/TextPlugin.min.js"></script>
 
 if(document.getElementsByClassName("header-animation").length){
     gsap.from( '.header-animation',{duration: 1, y: '-100%', ease:'bounce'})
