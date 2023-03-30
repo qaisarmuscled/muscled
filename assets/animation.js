@@ -29,4 +29,4 @@ var _intv = setInterval(function(){
   gsap.registerPlugin(ScrollTrigger);
   gsap.from('.animation-blog',{ scrollTrigger:'.blog-animate',duration: 4, x : '-100%', stagger:1})
 const h2 = document.querySelector('h2.animate');
-gsap.to('h2',{ text:"feature Products"})
+gsap.to("h2",{ text:"feature Products"})
