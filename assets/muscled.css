@@ -1,0 +1,3 @@
+.section-{{ section.id }}  p{
+   color:red;
+  }

@@ -1,9 +1,8 @@
+{{ 'muscled.css' | asset_url | stylesheet_tag }}
 <style>
-.section-{{ section.id }}  p{
-   color:red;
-  }
+
 </style>
-<div class = "section-{{ section.id }}">
+<div class = "muscled{{ section.id }}">
 <img src ="{{ section.settings.image1 | image_url }}" >
   <p>{{ section.settings.text1 }} </p>
 </div>
