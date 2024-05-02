@@ -1,6 +1,48 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+<style>
+  .practice-{{ section.id }} .custom-section {
+    text-align: center;
+    padding: 20px;
   }
+  .practice-{{ section.id }} .custom-section img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+
+<section class="practice-{{ section.id }}">
+  <div class="custom-section">
+    {% if section.settings.image %}
+      <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.heading | escape }}">
+    {% endif %}
+    <h2>{{ section.settings.heading }}</h2>
+    <div>{{ section.settings.text }}</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Practice Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Practice Section"
+      }
+  ]
+}
 {% endschema %}
