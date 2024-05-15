@@ -210,14 +210,12 @@
             {% render 'price', product: card_product, price_class: '' %}
           </div>
           <div class="product-variants">
-            <form action="/cart/add" method="post" enctype="multipart/form-data">
-              <select name="id">
-                {% for variant in card_product.variants %}
-                  <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
-                {% endfor %}
-              </select>
-              <button type="submit">Add to Cart</button>
-            </form>
+            {% for variant in card_product.variants %}
+              <label class="variant-swatch">
+                <input type="radio" name="id_{{ product.id }}" value="{{ variant.id }}" class="variant-input">
+                <img src="{{ variant.featured_image | img_url: 'thumb' }}" alt="{{ variant.title }}">
+              </label>
+            {% endfor %}
           </div>
           <div class="quick-view-button ">
             <a class="quick-view" data-handle="{{ card_product.handle }}" href="javascript:void(0);">Quick View</a>
