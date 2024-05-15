@@ -1,3 +1,40 @@
+<style>
+    .product-variants {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .variant-swatch {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .variant-swatch img {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .variant-input {
+    display: none;
+  }
+
+  .variant-input:checked + img {
+    border-color: #000;
+  }
+
+  .add-to-cart-btn {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+</style>
+
 {% comment %}
   Renders a product card
 
