@@ -250,14 +250,16 @@
 
             {% render 'price', product: card_product, price_class: '' %}
           </div>
-          <div class="product-variants">
-            {% for variant in card_product.variants %}
-              <label class="variant-swatch">
-                <input type="radio" name="id_{{ card_product.id }}" value="{{ variant.id }}" class="variant-input">
-                <img src="{{ variant.featured_image | img_url: 'thumb' }}" alt="{{ variant.title }}">
-              </label>
-            {% endfor %}
-          </div>
+          {% if card_product.variants > 0 %}
+            <div class="product-variants">
+              {% for variant in card_product.variants %}
+                <label class="variant-swatch">
+                  <input type="radio" name="id_{{ card_product.id }}" value="{{ variant.id }}" class="variant-input">
+                  <img src="{{ variant.featured_image | img_url: 'thumb' }}" alt="{{ variant.title }}">
+                </label>
+              {% endfor %}
+            </div>
+          {% endif %}
           <div class="quick-view-button ">
             <a class="quick-view" data-handle="{{ card_product.handle }}" href="javascript:void(0);">Quick View</a>
           </div>
