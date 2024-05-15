@@ -443,3 +443,38 @@
     </div>
   </div>
 {%- endif -%}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.product-card').forEach(function(productCard) {
+      const variantInputs = productCard.querySelectorAll('.variant-input');
+      const addToCartBtn = productCard.querySelector('.add-to-cart-btn');
+
+      variantInputs.forEach(function(input) {
+        input.addEventListener('change', function() {
+          const selectedVariantId = productCard.querySelector('.variant-input:checked').value;
+          addToCartBtn.setAttribute('data-variant-id', selectedVariantId);
+        });
+      });
+
+      addToCartBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        const selectedVariantId = addToCartBtn.getAttribute('data-variant-id');
+        if (selectedVariantId) {
+          fetch('/cart/add.js', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: selectedVariantId, quantity: 1 })
+          }).then(response => response.json()).then(data => {
+            console.log('Added to cart:', data);
+          }).catch(error => {
+            console.error('Error adding to cart:', error);
+          });
+        } else {
+          alert('Please select a variant.');
+        }
+      });
+    });
+  });
+</script>
