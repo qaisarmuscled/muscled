@@ -209,6 +209,16 @@
 
             {% render 'price', product: card_product, price_class: '' %}
           </div>
+          <div class="product-variants">
+            <form action="/cart/add" method="post" enctype="multipart/form-data">
+              <select name="id">
+                {% for variant in product.variants %}
+                  <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                {% endfor %}
+              </select>
+              <button type="submit">Add to Cart</button>
+            </form>
+          </div>
           <div class="quick-view-button ">
             <a class="quick-view" data-handle="{{ card_product.handle }}" href="javascript:void(0);">Quick View</a>
           </div>
