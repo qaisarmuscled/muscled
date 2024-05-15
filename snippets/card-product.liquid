@@ -250,16 +250,7 @@
 
             {% render 'price', product: card_product, price_class: '' %}
           </div>
-          {% if card_product.variants.size > 1 %}
-            <div class="product-variants">
-              {% for variant in card_product.variants %}
-                <label class="variant-swatch">
-                  <input type="radio" name="id_{{ card_product.id }}" value="{{ variant.id }}" class="variant-input">
-                  <img src="{{ variant.featured_image | img_url: 'thumb' }}" alt="{{ variant.title }}">
-                </label>
-              {% endfor %}
-            </div>
-          {% endif %}
+
           <div class="quick-view-button ">
             <a class="quick-view" data-handle="{{ card_product.handle }}" href="javascript:void(0);">Quick View</a>
           </div>
@@ -445,38 +436,3 @@
     </div>
   </div>
 {%- endif -%}
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.product-card').forEach(function(productCard) {
-      const variantInputs = productCard.querySelectorAll('.variant-input');
-      const addToCartBtn = productCard.querySelector('.add-to-cart-btn');
-
-      variantInputs.forEach(function(input) {
-        input.addEventListener('change', function() {
-          const selectedVariantId = productCard.querySelector('.variant-input:checked').value;
-          addToCartBtn.setAttribute('data-variant-id', selectedVariantId);
-        });
-      });
-
-      addToCartBtn.addEventListener('click', function(event) {
-        event.preventDefault();
-        const selectedVariantId = addToCartBtn.getAttribute('data-variant-id');
-        if (selectedVariantId) {
-          fetch('/cart/add.js', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ id: selectedVariantId, quantity: 1 })
-          }).then(response => response.json()).then(data => {
-            console.log('Added to cart:', data);
-          }).catch(error => {
-            console.error('Error adding to cart:', error);
-          });
-        } else {
-          alert('Please select a variant.');
-        }
-      });
-    });
-  });
-</script>
