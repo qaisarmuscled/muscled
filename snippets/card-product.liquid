@@ -212,7 +212,7 @@
           <div class="product-variants">
             {% for variant in card_product.variants %}
               <label class="variant-swatch">
-                <input type="radio" name="id_{{ product.id }}" value="{{ variant.id }}" class="variant-input">
+                <input type="radio" name="id_{{ card_product.id }}" value="{{ variant.id }}" class="variant-input">
                 <img src="{{ variant.featured_image | img_url: 'thumb' }}" alt="{{ variant.title }}">
               </label>
             {% endfor %}
