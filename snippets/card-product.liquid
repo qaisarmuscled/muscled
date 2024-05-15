@@ -250,7 +250,7 @@
 
             {% render 'price', product: card_product, price_class: '' %}
           </div>
-          {% if card_product.variants.size > 0 %}
+          {% if card_product.variants.size > 1 %}
             <div class="product-variants">
               {% for variant in card_product.variants %}
                 <label class="variant-swatch">
