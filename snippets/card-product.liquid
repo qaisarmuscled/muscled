@@ -212,7 +212,7 @@
           <div class="product-variants">
             <form action="/cart/add" method="post" enctype="multipart/form-data">
               <select name="id">
-                {% for variant in product.variants %}
+                {% for variant in card_product.variants %}
                   <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
                 {% endfor %}
               </select>
